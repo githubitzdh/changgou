@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 二维码显示位置 -->
+    <div id="qrcode"></div>
+</body>
+
+</html>
+<!-- 引入js库 -->
+<script src="/js/qrcode.min.js"></script>
+<!-- 将微信支付的链接渲染成二维码 -->
+<script>
+    //核心类
+    let qrcode = new QRCode(document.getElementById('qrcode'),
+        {
+            width: 200, height: 200
+        });
+    //2.设置数据
+    qrcode.makeCode('weixin://wxpay/bizpayurl?pr=3I85g9R')
+</script>

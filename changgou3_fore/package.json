@@ -1,0 +1,18 @@
+{
+  "name": "changgou3_fore",
+  "version": "1.0.0",
+  "description": "My impeccable Nuxt.js project",
+  "author": "詹锝煌",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --open",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6"
+  },
+  "devDependencies": {}
+}

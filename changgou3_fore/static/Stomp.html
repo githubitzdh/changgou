@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
+<!-- 引入核心js -->
+<script src="/js/stomp.js"></script>
+<!-- 入门案例 -->
+<script>
+    //1.与RabbitMQ连接
+    var client = Stomp.client('ws://localhost:15674/ws')
+
+    // 关闭调试
+    client.debug = false;
+
+    //2
+    //2.1成功回调函数
+    var on_connect = function (x) {
+        //订阅:RabbitMQ消息有多种类型:queue队列
+       // id = client.subscribe("/queue/changgou_test", function (d) {
+        id = client.subscribe("/exchange/order_ex/changgou_test", function (d) {
+            console.info(d.body)
+        })
+    }
+
+
+    //2.2失败回调函数
+    var on_error = function () {
+        console.log('error')
+    }
+
+    //2.3获得连接  client.connect('用户名','密码',成功回调函数,失败回调函数,host)
+    client.connect('guest', 'guest', on_connect, on_error, '/')
+</script>
